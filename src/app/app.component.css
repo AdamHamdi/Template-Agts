@@ -1,42 +1,101 @@
 .sidenav {
-  width: 250px !important;
-  border-color: rgba(0,0,0,.05);
-  height: 100vh;
+  
+  border-color: rgba(0, 0, 0, .05);
   border-style: solid;
-    box-shadow: 0 0 2rem 0 rgb(136 152 170 / 15%);
-    padding: 1.5rem;
-    
+  box-shadow: 0 0 2rem 0 rgb(136 152 170 / 15%);
+  overflow: hidden;
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 62px;
+  overflow-y: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
+.sidenav:hover {
+  max-width: 250px!important;
+}
+ .sidenav:not(mat-drawer-opened=true) {
+  width: 65px!important;
+  padding: 0!important;
+}
+
 .drawer-container {
   height: 100vh;
 }
+
 .sidenav-content {
   background-color: #f8f9fe;
 }
-.mat-toolbar{
-    border-bottom:1px solid rgba(0,0,0,.04)!important;
-    background-color: #f8f9fe;
+.sidenav+.sidenav-content {
+  margin-left: 62px;
+  transition: all .15s ease;
 }
-.logo{
-    font-size: 32px;
-    font-weight: bold;
-    color: rgb(238, 32, 32);  
+.sidenav+.sidenav-content {
+  margin-left: 250px;
+
 }
-.profile{    transform: translate(-146px, 40px);
-    position: absolute;
-     top: 30px!important; 
-   left: 0!important; 
-    will-change: transform;
-    width: 280px;
-    padding: 0px;
-   
+.sidenav-content {
+  position: relative;
+}
+
+.mat-toolbar {
+  border-bottom: 1px solid rgba(0, 0, 0, .04)!important;
+  background-color: #f8f9fe;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: rgb(238, 32, 32);
+}
+
+.profile {
+  transform: translate(-146px, 40px);
+  position: absolute;
+  top: 30px!important;
+  right: 0;
+  left: auto;
+
+  width: 308px;
+  padding: 0px;
+ 
 }
 .dropdown-toggle::after {
-    display: none;
-    
+  display: none;
 }
-.menu .title{    background-color: #1e88e5!important;}
-.ms-0{margin-left: 0.5rem!important;}
-.menu-list .mat-list .mat-list-item:hover{
-    background-color: #eee;
+
+.menu .title {
+  background-color: #1e88e5!important;
+}
+
+.ms-0 {
+  margin-left: 0.5rem!important;
+}
+.dropdown-menu{   
+  transform: translate(-146px, 40px);
+  position: absolute;
+  top: 30px!important;
+  right: 0;
+  left: auto;
+  width: 308px;
+  padding: 0;
+
+}
+.menu-list .mat-list .mat-list-item:hover {
+  background-color: #eee;
+}
+@media(max-width:576px){
+  .profile.dropdown-menu {
+    transform: translate(-230px, 40px)!important;
+   
+    width: 308px;
+    padding: 0px;
+  }
+  .dropdown-menu{
+    transform: translate(-82px, 40px)!important;
+  
+  }
 }

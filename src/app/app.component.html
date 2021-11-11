@@ -1,50 +1,116 @@
 <mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer #drawer class="sidenav bg-white " mode="side" opened>
+  <mat-drawer #drawer class="sidenav  bg-white" mode="side" opened>
     <div class="d-flex justify-content-between">
-    <h1 class=" logo  px-4 font-weight-bold">Aragon</h1>
-    <button type="button" mat-icon-button (click)="drawer.toggle()">
-      <span class="material-icons">
-        menu
-        </span>
-    </button>
-  </div>
+      <h1 class="logo px-4 font-weight-bold">Aragon</h1>
+      <button type="button" mat-icon-button  (click)="drawer.open()"  >
+        <span class="material-icons"> menu </span>
+      </button>
+    </div>
+    <mat-list>
+      <div mat-subheader>Folders</div>
+      <mat-list-item *ngFor="let folder of folders">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>{{folder.name}}</div>
+       
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <div mat-subheader>Notes</div>
+      <mat-list-item *ngFor="let note of notes">
+        <mat-icon mat-list-icon>note</mat-icon>
+        <div mat-line>{{note.name}}</div>
+       
+      </mat-list-item>
+    </mat-list>
   </mat-drawer>
 
   <mat-drawer-content class="sidenav-content">
-    
     <mat-toolbar class="p-5">
-      <div class="d-flex justify-content-end w-100">
-        
-        <div class="avatar ml-auto" ngbDropdown #myDrop="ngbDropdown">
-          <button  mat-icon-button id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">
-          <img src="../assets/img/avatar2.jpg" alt="" width="50" class="rounded-circle">
-        </button>
-        <div class="profile" ngbDropdownMenu aria-labelledby="dropdownManual">
-          <div class="menu">
-            <div class="title p-2 d-flex no-block align-items-center ">
-                <img src="../assets/img/avatar2.jpg" alt="" width="60" class="rounded-circle">              
-              <div class=" ms-0 text-light">
-                <h4 class="mt-2">Steave Jobs</h4>
-                <p class="">steaveJobs@gmail.com</p> 
+      <button type="button" mat-icon-button (click)="drawer.toggle()">
+        <span class="material-icons"> menu </span>
+      </button>
+      <div class="d-flex justify-content-end   w-100">
+        <div ngbDropdown class="d-inline-block">
+          <a class="btn btn-olink" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div class="menu">
+              <div class="title p-2 d-flex no-block align-items-center">
+                <img src="../assets/img/avatar2.jpg" alt="" width="60" class="rounded-circle" />
+                <div class="ms-0 text-light">
+                  <h4 class="mt-2">Steave Jobs</h4>
+                  <p class="">steaveJobs@gmail.com</p>
+                </div>
               </div>
-            </div>
-            <div class="menu-list">
-              <mat-list role="list">
-                <mat-list-item role="listitem"><mat-icon class=" mr-3 text-primary">person</mat-icon> <span class=" ms-0 text-secondary">My profile</span> </mat-list-item>
-                <mat-list-item role="listitem"><mat-icon class=" mr-3 text-primary"> credit_card</mat-icon><span class="ms-0 text-secondary">My balance</span> </mat-list-item>
-                <mat-list-item role="listitem"><mat-icon class=" mr-3 text-info">mail</mat-icon><span class="ms-0 text-secondary">Inbox</span> </mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item role="listitem"><mat-icon class=" mr-3 text-warning">settings</mat-icon><span class="ms-0 text-secondary">Inbox</span> </mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item role="listitem"><mat-icon class=" mr-3 text-danger">logout</mat-icon><span class="ms-0 text-secondary">Inbox</span> </mat-list-item>
-                <mat-divider></mat-divider>
-              </mat-list>
+              <div class="menu-list">
+                <mat-list role="list">
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-primary">person</mat-icon>
+                    <span class="ms-0 text-secondary">My profile</span>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-primary"> credit_card</mat-icon><span class="ms-0 text-secondary">My
+                      balance</span>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-info">mail</mat-icon><span class="ms-0 text-secondary">Inbox</span>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-warning">settings</mat-icon><span
+                      class="ms-0 text-secondary">Inbox</span>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-danger">logout</mat-icon><span class="ms-0 text-secondary">Inbox</span>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                </mat-list>
+              </div>
             </div>
           </div>
         </div>
+        <div class="avatar ml-auto" ngbDropdown #myDrop="ngbDropdown">
+          <button mat-icon-button id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">
+            <img src="../assets/img/avatar2.jpg" alt="" width="50" class="rounded-circle" />
+          </button>
+          <div class="profile" ngbDropdownMenu aria-labelledby="dropdownManual">
+            <div class="menu">
+              <div class="title p-2 d-flex no-block align-items-center">
+                <img src="../assets/img/avatar2.jpg" alt="" width="60" class="rounded-circle" />
+                <div class="ms-0 text-light">
+                  <h4 class="mt-2">Steave Jobs</h4>
+                  <p class="">steaveJobs@gmail.com</p>
+                </div>
+              </div>
+              <div class="menu-list">
+                <mat-list role="list">
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-primary">person</mat-icon>
+                    <span class="ms-0 text-secondary">My profile</span>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-primary"> credit_card</mat-icon><span class="ms-0 text-secondary">My
+                      balance</span>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-info">mail</mat-icon><span class="ms-0 text-secondary">Inbox</span>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-warning">settings</mat-icon><span
+                      class="ms-0 text-secondary">Inbox</span>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item role="listitem">
+                    <mat-icon class="mr-3 text-danger">logout</mat-icon><span class="ms-0 text-secondary">Inbox</span>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                </mat-list>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+  
     </mat-toolbar>
   </mat-drawer-content>
-
 </mat-drawer-container>
