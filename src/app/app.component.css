@@ -9,7 +9,7 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  max-width: 62px;
+  max-width: 250px;
   overflow-y: auto;
   padding-left: 0;
   padding-right: 0;
@@ -17,10 +17,10 @@
 .sidenav:hover {
   max-width: 250px!important;
 }
- .sidenav:not(mat-drawer-opened=true) {
+ /* .sidenav:not(mat-drawer-opened=true) {
   width: 65px!important;
   padding: 0!important;
-}
+} */
 
 .drawer-container {
   height: 100vh;
@@ -98,4 +98,11 @@
     transform: translate(-82px, 40px)!important;
   
   }
+}
+.menu-container {
+  position: absolute;
+  top: 90px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
